@@ -70,7 +70,23 @@ const Nav = () => {
         </div>
 
         {/* Social Icons */}
-        
+        <div className="hidden lg:flex space-x-4">
+          <a href="#">
+            <i className={`bi bi-facebook text-xl ${isSticky ? "text-black" : "text-white"}`}></i>
+          </a>
+          <a href="#">
+            <i className={`bi bi-instagram text-xl ${isSticky ? "text-black" : "text-white"}`}></i>
+          </a>
+        </div>
+
+        {/* Mobile Menu button */}
+        <button 
+          className={`lg:hidden text-2xl ${isSticky ? "text-black" : "text-white"}`} 
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+        >
+          <i className="ri-menu-2-fill"></i>
+        </button>
+
       </div>
     </nav>
   )
