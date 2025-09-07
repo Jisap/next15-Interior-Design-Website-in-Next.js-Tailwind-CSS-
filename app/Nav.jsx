@@ -7,10 +7,10 @@ import { useEffect, useState } from "react";
 
 const navLinks = [
   { name: "Home", href: "/" },
-  { name: "About Us", href: "/about" },
+  { name: "About Us", href: "/About" },
   { name: "Services", href: "/services" },
   { name: "Properties", href: "/properties" },
-  { name: "Contact", href: "/contact" },
+  { name: "Contact", href: "/Contact" },
 ]
 
 const Nav = () => {
@@ -39,7 +39,7 @@ const Nav = () => {
   return (
     <nav className={`
       fixed top-0 left-0 w-full z-50 transition-all duration-300 
-      ${isSticky ? "bg-white shadow-md" : "bg-transparent border-b border-gray-400"}
+      ${isSticky ? "bg-white shadow-md" : "bg-black border-b border-gray-400"}
     `}>
       <div className="flex justify-between items-center px-[8%] lg:px-[12%] py-6">
         <Link 
@@ -51,6 +51,26 @@ const Nav = () => {
         >
           Livin<span className="text-orange-500 font-bricolage">Lines</span>
         </Link>
+
+        {/* Desktop Nav */}
+        <div className="hidden lg:flex items-center space-x-6">
+          {navLinks.map((link) => (
+            <Link
+              key={link.name}
+              href={link.href}
+              className={`
+                text-base font-medium transition-all hover:bg-gray-200 hover:text-black relative px-3 py-2 rounded
+                ${isSticky ? "text-black" : "text-white"}
+                ${pathname === link.href ? "bg-gray-200 text-black active-links" : ""}  
+              `}
+            >
+              {link.name}
+            </Link>
+          ))}
+        </div>
+
+        {/* Social Icons */}
+        
       </div>
     </nav>
   )

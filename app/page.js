@@ -7,7 +7,7 @@ export default function Home() {
 
   return (
     <>
-      hello world
+      <div className="h-[5000px]"></div>
     </>
   );
 }
