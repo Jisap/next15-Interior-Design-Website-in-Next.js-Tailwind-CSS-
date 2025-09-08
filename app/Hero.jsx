@@ -109,7 +109,7 @@ const Hero = () => {
 
   return (
     <>
-      <div className="w-full h-screen relative">
+      <div className="w-full h-screen relative overflow-hidden">
         <Swiper
           modules={[Navigation, EffectCards, Autoplay]}
           effect={"cards"}
