@@ -105,10 +105,22 @@ const Hero = () => {
                       </p>
                     ))}
                   </div>
+                  <Link href={slide.buttonLink}>
+                    <button className="mt-4 cursor-pointer rounded px-6 py-3 border border-white text-white uppercase tracking-wide hover:bg-white hover:text-black transition-all">
+                      {slide.buttonText} <i className="bi bi-arrow-right ml-2" />
+                    </button>
+                  </Link>
                 </div>
               </div>
             </SwiperSlide>
           ))}
+          {/* Navigation buttons */}
+          <div className="swiper-button-next swiper-btn swiper-next left-4 top-[80%] absolute z-20">
+            <i className="ri-arrow-right-wide-line"></i>
+          </div>
+          <div className="swiper-button-prev swiper-btn swiper-next left-4 top-[90%] absolute z-20">
+            <i className="ri-arrow-left-wide-line"></i>
+          </div>
         </Swiper>
 
       </div>
