@@ -206,6 +206,8 @@ const Hero = () => {
           ))}
         </div>
       </div>
+
+      {/* About */}
     </>
   )
 }

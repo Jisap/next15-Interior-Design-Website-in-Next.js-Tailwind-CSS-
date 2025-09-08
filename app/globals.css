@@ -226,3 +226,18 @@ body {
     @apply text-base text-black no-underline;
   }
 }
+
+@keyframes anim-marquee {
+  0% {
+    transform: translateX(0%)
+  }
+  100% {
+    transform: translateX(-50%)
+  }
+}
+
+.animate-marquee {
+  animation: anim-marquee 25s forwards infinite;
+  display: flex;
+  width: fit-content;
+}
