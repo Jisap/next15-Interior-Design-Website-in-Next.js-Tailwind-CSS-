@@ -208,6 +208,22 @@ const Hero = () => {
       </div>
 
       {/* About */}
+      <section className="px-[8%] lg:-[12%] py-12">
+          {/* Top section */}
+          <div className="flex flex-col lg:flex-row justify-between items-center gap-12">
+            <div className="lg:w-2/3">
+              <h2 className="text-[4rem] leading-[4rem] lg:text-[6rem] lg:leading-[6rem] fon tracking-[.2rem] font-[bricolage-font]">
+                Interior & Architecture Design Solutions
+              </h2>
+            </div>
+
+            <div className="lg:w-1/2">
+              <h3 className="uppercase tracking-wider font-semibold border-b pb-2 mb-6 text-sm w-fit">
+                About Us
+              </h3>
+            </div>
+          </div>
+      </section>
     </>
   )
 }
