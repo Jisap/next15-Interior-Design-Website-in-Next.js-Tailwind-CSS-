@@ -221,6 +221,46 @@ const Hero = () => {
               <h3 className="uppercase tracking-wider font-semibold border-b pb-2 mb-6 text-sm w-fit">
                 About Us
               </h3>
+
+              <p className="text-base mb-4 text-gray-700">
+                At Shree Hari Associates, we're committed to transforming spaces through creative vision, elegant design, and solutions that truly reflect your lifestyle.
+              </p>
+
+              <a className="inline-flex items-center text-black font-medium hover:underline text-lg">
+                Company Info <span className="ml-2">***</span>
+              </a>
+            </div>
+          </div>
+
+          {/* Main section */}
+          <div className="mt-12 flex flex-col lg:flex-row gap-10">
+            <div className="lg:w-1/2 w-full">
+              <Swiper
+                modules={[Navigation, EffectCards, Autoplay]}
+                loop={true}
+                effect={"cards"}
+                grabCursor={true}
+                autoplay={{
+                  delay: 1500,
+                  disableOnInteraction: false,
+                }}
+                navigation={{
+                  nextEl: ".swiper-about-next",
+                  prevEl: ".swiper-about-prev",
+                }}
+                className="rounded"
+                style={{ padding: "30px"}}
+              >
+                {[
+                  "interior-image-01.jpg",
+                  "interior-image-02.jpg",
+                  "interior-image-05.jpg",
+                ].map((src, index) => (
+                  <SwiperSlide key={index}>
+                    <img src={src} alt="interior-image" className="w-full h-[580px] object-cover rounded"/>
+                  </SwiperSlide>
+                ))}
+              </Swiper>
             </div>
           </div>
       </section>
