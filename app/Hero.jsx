@@ -116,7 +116,29 @@ const marqueeItems = [
   "Furniture & Decor Selection",
   "Structure Design",
   "Residential Space",
-]
+];
+
+const tabs = [
+  {label: "History", key: "his"},
+  {label: "Mission", key: "mis"},
+  {label: "Vision", key: "vis"},
+];
+
+const tabContent = {
+  his: [
+    "At Shree Hari Associates Interior Design, we believe every space should tell a meaningful story...",
+    "With years of insdustry experience and passion for innovation, we specialize in both residential and commercial interior design...",
+    "From initial concepts to final execution, we manage every stage of the process with precision and creativity",
+  ],
+  mis: [
+    "Our mission at Shree Hari Associates is to design personalized, functional, and inspiring spaces ...",
+    "We focus on building lasting client relationships and approach every project with attention to detail ..."
+  ],
+  vis: [
+    "Our vision is to be a leading force in interior and architectural design",
+    "We strive to shape living and working environments thar reflect individual aspirations..."
+  ]
+}
 
 const Hero = () => {
 
