@@ -40,4 +40,141 @@ body {
   color: var(--black-color) !important;
 }
 
+@keyframes Anim-fade-left  {
+  0% {
+    transform: translateX(200px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0px);
+    opacity: 1;
+  }
+}
+
+@keyframes Anim-fade-top  {
+  0% {
+    transform: translateY(-200px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}
+
+@keyframes Anim-fade-bottom  {
+  0% {
+    transform: translateY(200px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}
+
+@keyframes Anim-fade-scale {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.2);
+  }
+}
+
+.swiper-btn:after {
+  display: none;
+}
+
+.swiper-btn {
+  position: absolute;
+  top: 75% !important;
+  left: 8% !important;
+}
+
+.swiper-next {
+  top: 84% !important;
+}
+
+.swiper-btn i {
+  font-size: 2.5rem;
+  width: 70px;
+  height: 65px;
+  color: var(--white-color);
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  border: 1px solid var(--white-color);
+  transition: var(--transition-rgular);
+}
+
+.swiper-btn i:hover {
+  background-color: var(--white-color);
+  color: var(--black-color);
+}
+
+.hero-content span {
+  opacity: 0;
+  animation: Anim-fade-top var(--transition-slow) 0.8s forwards linear;
+}
+
+.hero-content h1 {
+  opacity: 0;
+  animation: Anim-fade-left var(--transition-slow) 0.3s forwards linear;
+}
+
+.hero-content p {
+  opacity: 0;
+  animation: Anim-fade-bottom var(--transition-slow) 1s forwards linear;
+}
+
+.hero-content p:first-child {
+  opacity: 0;
+  animation: Anim-fade-bottom var(--transition-slow) 0.8s forwards linear !important;
+}
+
+.hero-content button {
+  opacity: 0;
+  animation: Anim-fade-bottom var(--transition-slow) 1.3s forwards linear !important;
+}
+
+@media (max-width: 991px) {
+  .swiper-btn{
+    top: 85% !important;
+    left: 5% !important;
+  }
+  .swiper-next{
+    left: 90% !important;
+  }
+  .side-menu {
+    position: absolute !important;
+    top: 100%;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    background-color: var(--white-color);
+    padding: 0 12%;
+  }
+  .side-menu .menu li {
+    margin: 5px 0;
+    padding: 5px 0;
+    border-bottom: 1px solid #eee8e8
+  }
+  .side-menu .menu li a {
+    color: var(--color-black);
+    text-decoration: none;
+    font-size: 1rem;
+  }
+}
+
+
+
+
+
+
+
 

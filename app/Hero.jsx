@@ -7,7 +7,7 @@ import "swiper/css/navigation"
 import "swiper/css/effect-cards"
 import Image from "next/image"
 import Link from "next/link"
-import { useState } from "react"
+import { useRef, useState } from "react"
 
 
 const HeroSlides = [
@@ -54,12 +54,58 @@ const HeroSlides = [
     ],
     buttonText: "Services",
     buttonLink: "/services",
-  }
+  },
+  {
+    bgImage: "/Hero-1.webp",
+    span: "Space Planning",
+    title: "Unique \nCreations",
+    paragraphs: [
+      "At Shree Hari Associate, we specialize in crafting thoughtful architectural layouts that not only look great but also provide a sense of calm and tranquility.",
+      "Let's create timeless, purposeful spaces -where aesthetic beauty meets intelligent functionality.",
+    ],
+    buttonText: "About Us",
+    buttonLink: "/about",
+  },
+  {
+    bgImage: "/Hero-2.webp",
+    span: "Furniture Selection",
+    title: "Design \nPerfection",
+    paragraphs: [
+      "Welcome to Shree Hari Associates - where exceptional design meets tailored solutions.",
+      "Every piece is selected to enhance both aesthetic and funcionality, reflecting your unique taste and style.",
+    ],
+    buttonText: "Portfolio",
+    buttonLink: "/projects",
+  },
+  {
+    bgImage: "/Hero-3.webp",
+    span: "Lighting Solutions",
+    title: "Elegant \nLiving",
+    paragraphs: [
+      "Welcome to Shree Hari Associates Interior Design - where creativity meets functionality.",
+      "Our lighting solutions transform ordinay rooms into masterpieces that reflect your personality and style.",
+    ],
+    buttonText: "Blog",
+    buttonLink: "/blog",
+  },
+  {
+    bgImage: "/Hero-4.webp",
+    span: "Color Harmony",
+    title: "Functional \nBeauty",
+    paragraphs: [
+      "Welcome to Shree Hari Associates, where your vision comes to life through thoughtful design.",
+      "We believe the right colors create balance, mood, and meaning in every space.",
+    ],
+    buttonText: "Services",
+    buttonLink: "/services",
+  },
 ]
 
 const Hero = () => {
 
   const [activeTab, setActiveTab] = useState('his');
+  const prevRef = useRef(null);
+  const nextRef = useRef(null);
 
   return (
     <>
@@ -74,8 +120,12 @@ const Hero = () => {
           }}
           loop={true}
           navigation={{
-            nextEl: ".swiper-button-next",
-            prevEl: ".swiper-button-prev",          
+            nextEl: nextRef.current,
+            prevEl: prevRef.current,          
+          }}
+          onBeforeInit={(swiper) => {
+            swiper.params.navigation.prevEl = prevRef.current;
+            swiper.params.navigation.nextEl = nextRef.current;
           }}
           className="h-full"
         >
@@ -115,10 +165,10 @@ const Hero = () => {
             </SwiperSlide>
           ))}
           {/* Navigation buttons */}
-          <div className="swiper-button-next swiper-btn swiper-next left-4 top-[80%] absolute z-20">
+          <div ref={nextRef} className="swiper-button-next swiper-btn swiper-next left-4 top-[80%] absolute z-20">
             <i className="ri-arrow-right-wide-line"></i>
           </div>
-          <div className="swiper-button-prev swiper-btn swiper-next left-4 top-[90%] absolute z-20">
+          <div ref={prevRef} className="swiper-button-prev swiper-btn swiper-prev left-4 top-[90%] absolute z-20">
             <i className="ri-arrow-left-wide-line"></i>
           </div>
         </Swiper>
