@@ -140,6 +140,33 @@ const tabContent = {
   ]
 }
 
+const processSteps = [
+  {
+    id: 1,
+    imgSrc: "/process-icon-1.svg",
+    title: "Consultation and initial meeting",
+    description: "The architecture company meets with the client to discuss their needs, budget, and timeline."
+  },
+  {
+    id: 2,
+    imgSrc: "/process-icon-2.svg",
+    title: "Concept design",
+    description: "Based on the client's requirements, the architecture company creates a concept design that outlines the overall layout and design elements."
+  },
+  {
+    id: 3,
+    imgSrc: "/process-icon-3.svg",
+    title: "Design development",
+    description: "Once the client approves the concept design, the architecture company begins to develop detailed drawings and models for the project."
+  },
+  {
+    id: 4,
+    imgSrc: "/process-icon-4.svg",
+    title: "Permitting and approvals",
+    description: "Before de construction can begin, the architecture company mus obtain the necessary permits and approvals from the client and local authorities."
+  },
+]
+
 const Hero = () => {
 
   const [activeTab, setActiveTab] = useState('his');
@@ -303,6 +330,15 @@ const Hero = () => {
                   >
                     {tab.label}
                   </button>
+                ))}
+              </div>
+
+              {/* Tab Content */}
+              <div className="space-y-4 text-gray-700">
+                {tabContent[activeTab].map((para, idx) => (
+                  <p key={idx} className="text-base leading-relaxed">
+                    {para}
+                  </p>
                 ))}
               </div>
             </div>
