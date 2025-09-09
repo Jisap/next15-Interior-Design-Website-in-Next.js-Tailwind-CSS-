@@ -481,6 +481,36 @@ const Hero = () => {
           ))}
         </div>
       </div>
+
+      {/* Our properties */}
+      <section className="px-[8%] lg:-[12%] py-16 relative">
+          <div className="flex flex-col lg:flex-row justify-between items-center mb-12">
+            <div className="lg:w-2/3 mb-8 lg:mb-0">
+              <h1 className="text-8xl font-bricolage font-bold">
+                Our Properties
+              </h1>
+            </div>
+
+            <div className="lg:w-1/3">
+              <h3 className="text-2xl font-jost font-semibold mb-3">
+                Our Properties
+              </h3>
+
+              <p className="mb-4 text-gray-700">
+                We build our projects with your dreams and ideas. Touch modern concepts and designs with Shree Hari Associates.
+              </p>
+
+              <a href="/Projects">
+                <button className="btn py-3 px-0 text-lg font-medium flex items-center">
+                  <span className="text-black">View More</span>
+                  <i className="bi bi-arrow-up-right ms-2"></i>
+                </button>
+              </a>
+            </div>
+          </div>
+
+          
+      </section>
     </>
   )
 }

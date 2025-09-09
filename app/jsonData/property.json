@@ -1,0 +1,86 @@
+[
+  {
+    "id": 1,
+    "image": "/property-1.jpg",
+    "title": "Modern Family Home",
+    "desc": "Moder home with stylish design and functional living space",
+    "price": "85,000"
+  },
+  {
+    "id": 2,
+    "image": "/property-2.jpg",
+    "title": "Spacious Luxury Residence",
+    "desc": "Spacious residence featuring elegant finishes and natural lighting.",
+    "price": "92,500"
+  },
+  {
+    "id": 3,
+    "image": "/property-3.jpg",
+    "title": "Affordable Urban Home",
+    "desc": "Confortable and affordable home combining style and practicality.",
+    "price": "110,000"
+  },
+  {
+    "id": 4,
+    "image": "/property-4.jpg",
+    "title": "Charming Contemporary House",
+    "desc": "Charming property with comtemporary design and cozy interiors.",
+    "price": "99,000"
+  },
+  {
+    "id": 5,
+    "image": "/property-5.jpg",
+    "title": "Smart Planned Apartment",
+    "desc": "Well-planned layout with modern amenities for everyday comfort.",
+    "price": "120,000"
+  },
+  {
+    "id": 6,
+    "image": "/property-6.jpg",
+    "title": "Exclusice Luxury Villa",
+    "desc": "Luxurious home offering spacious rooms and high-end finishes.",
+    "price": "123,000"
+  },
+  {
+    "id": 7,
+    "image": "/property-7.jpg",
+    "title": "Elegant Family Residence",
+    "desc": "Elegant design with functional spaces ideal for families",
+    "price": "87,000"
+  },
+  {
+    "id": 8,
+    "image": "/property-8.jpg",
+    "title": "Affordable Cozy Apartment",
+    "desc": "Affordable residence featuring a bright and inviting atmosphere.",
+    "price": "65,000"
+  },
+  {
+    "id": 9,
+    "image": "/property-9.jpg",
+    "title": "Conteporary Cozy Home",
+    "desc": "Moden design coupled with cozy, well-lit living areas.",
+    "price": "85,000"
+  },
+  {
+    "id": 10,
+    "image": "/property-10.jpg",
+    "title": "Stylish Urban House",
+    "desc": "Stylish and comfortable home with practical, elegant features.",
+    "price": "81,000"
+  },
+  {
+    "id": 11,
+    "image": "/property-11.jpg",
+    "title": "Modern Contemporary Living",
+    "desc": "Contemporary property designed for convenience and modern living.",
+    "price": "80,000"
+  },
+  {
+    "id": 12,
+    "image": "/property-12.jpg",
+    "title": "Bright Spacious Apartment",
+    "desc": "Bright and spacious home with a welcoming ambiance and modern features.",
+    "price": "88,000"
+  }
+]
