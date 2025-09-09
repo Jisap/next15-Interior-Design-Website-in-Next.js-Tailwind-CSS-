@@ -138,7 +138,7 @@ const tabContent = {
     "Our vision is to be a leading force in interior and architectural design",
     "We strive to shape living and working environments thar reflect individual aspirations..."
   ]
-}
+};
 
 const processSteps = [
   {
@@ -165,6 +165,39 @@ const processSteps = [
     title: "Permitting and approvals",
     description: "Before de construction can begin, the architecture company mus obtain the necessary permits and approvals from the client and local authorities."
   },
+];
+
+const services = [
+  {
+    icon: "/service-icon-4.svg",
+    title: "Furniture Selection",
+    description: "Picking stylish, functional pieces to match space and purpose"
+  },
+  {
+    icon: "/service-icon-2.svg",
+    title: "Color Consultation",
+    description: "Choosing harmonious palletes that reflect mood, space, and personality."
+  },
+  {
+    icon: "/service-icon-3.svg",
+    title: "Lighting Design",
+    description: "Enhancing ambiance and functionality with strategic lighting placements."
+  },
+  {
+    icon: "/service-icon-5.svg",
+    title: "Wall Treatments",
+    description: "Applying paint, wallpaper, or textures for visual interest enhancement."
+  },
+  {
+    icon: "/service-icon-6.svg",
+    title: "Flooring Design",
+    description: "Selecting materials for style, durability, and room-specficic performance."
+  },
+  {
+    icon: "/kitchen-icon.png",
+    title: "Kitchens",
+    description: "Crafting modern, efficient kitchens tailored for comfort and utility."
+  }
 ]
 
 const Hero = () => {
@@ -276,7 +309,7 @@ const Hero = () => {
               </p>
 
               <a className="inline-flex items-center text-black font-medium hover:underline text-lg">
-                Company Info <span className="ml-2">***</span>
+                Company Info <span className="ml-2"><i className="bi bi-arrow-up-right ms-2"></i></span>
               </a>
             </div>
           </div>
@@ -394,6 +427,58 @@ const Hero = () => {
               </div>
             ))}
           </div>
+        </div>
+      </div>
+
+      {/* Services */}
+      <div className="px-[8%] lg:-[12%] py-12">
+        <div className="flex flex-col lg:flex-row justify-between items-center gap-12">
+          <div className="lg:w-2/3 mb-8 lg:mb-0">
+            <h1 className="text-8xl font-bricolage font-bold">
+              Interior Design Solutions
+            </h1>
+          </div>
+
+          <div className="lg:w-1/3">
+            <h3 className="text-2xl font-jost font-semibold mb-3">
+              Our Services
+            </h3>
+
+            <p className="mb-4 text-gray-700">
+              Wheter you're dreaming of a cozy home retreat or a bold, modern workspace, out experiences at Shree Hari Associates will make your vision come to life.
+            </p>
+
+            <a href="/Services">
+              <button className="btn py-3 px-0 text-lg font-medium flex items-center">
+                <span>All Services</span>
+                <i className="bi bi-arrow-up-right ms-2"></i>
+              </button>
+            </a>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 py-10">
+          {services.map((service, idx) => (
+            <div 
+              key={idx}
+              className="border border-black rounded-xl p-6 transition-all duration-300 hover:border-transparent shadow hover:shadow-lg hover:-translate-y-1 cursor-pointer"
+            >
+              <Image 
+                src={service.icon} 
+                alt="service-icon" 
+                width={70}
+                height={70}
+                className="mb-4 transition-transform duration-700 group-hover:rotate-[360deg]"
+
+              />
+              <h2 className="text-3xl font-bricolage relative inline-block mt-2 mb-2 after:blcok after:content-[''] after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-black hover:after:w-full after:transition-all af:duration-300">
+                {service.title}
+              </h2>
+              <p className="text-gray-700 font-normal w-4/5">
+                {service.description}
+              </p>
+            </div>
+          ))}
         </div>
       </div>
     </>
