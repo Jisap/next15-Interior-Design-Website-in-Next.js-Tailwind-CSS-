@@ -284,6 +284,28 @@ const Hero = () => {
                 ))}
               </Swiper>
             </div>
+
+            {/* Tabs & Content */}
+            <div className="lg:w-1/2 w-full px-0 lg:px-10 pt-10">
+              {/* Tabs */}
+              <div className="flex gap-6 border-b mb-6">
+                {tabs.map((tab) => (
+                  <button
+                    key={tab.key}
+                    className={`
+                      relative pb-2 text-lg font-medium transition-colors cursor-pointer
+                      ${activeTab === tab.key 
+                        ? "text-black after:absolute after:content-[''] after:bottom-0 after:left-0 after:w-full after:h-1 after:bg-black" 
+                        : "text-gray-400 hover:text-black"
+                      }  
+                    `}
+                    onClick={() => setActiveTab(tab.key)}
+                  >
+                    {tab.label}
+                  </button>
+                ))}
+              </div>
+            </div>
           </div>
       </section>
     </>
