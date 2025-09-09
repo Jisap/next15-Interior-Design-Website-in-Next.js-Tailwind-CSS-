@@ -344,6 +344,19 @@ const Hero = () => {
             </div>
           </div>
       </section>
+
+      {/* Design Process */}
+      <div className="bg-gray-100 px-[8%] lg:px-[12%] py-16">
+        <div className="container mx-auto px-4">
+          <div className="flex flex-col lg:flex-row justify-between items-center mb-12">
+            <div className="lg:w-1/2 mb-10 lg:mb-0">
+                <h1 className="text-8xl font-[bricolage-font] font-semibold">
+                  Our Design Process
+                </h1>
+            </div>
+          </div>
+        </div>
+      </div>
     </>
   )
 }
