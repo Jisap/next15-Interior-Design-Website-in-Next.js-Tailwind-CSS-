@@ -145,7 +145,7 @@ const processSteps = [
     id: 1,
     imgSrc: "/process-icon-1.svg",
     title: "Consultation and initial meeting",
-    description: "The architecture company meets with the client to discuss their needs, budget, and timeline."
+    description: "The architecture company meets with the client to discuss their needs, budget, and timeline and to understand their vision for the project."
   },
   {
     id: 2,
@@ -387,7 +387,9 @@ const Hero = () => {
                   </h2>
 
                   {/* Description */}
-                  
+                  <p className="text-center text-base max-w-[70%] mx-auto">
+                    {description}
+                  </p>
                 </div>
               </div>
             ))}
