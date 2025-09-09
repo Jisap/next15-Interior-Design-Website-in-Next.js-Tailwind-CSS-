@@ -4,6 +4,7 @@
 @import "remixicon/fonts/remixicon.css";
 
 @import "swiper/css";
+@import "swiper/css/navigation";
 @import "swiper/css/pagination";
 
 
@@ -240,4 +241,32 @@ body {
   animation: anim-marquee 25s forwards infinite;
   display: flex;
   width: fit-content;
+}
+
+/* Swiper styles */
+.swiper {
+  width: 100%;
+  height: auto;
+}
+
+.swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: auto;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Swiper slide images */
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
