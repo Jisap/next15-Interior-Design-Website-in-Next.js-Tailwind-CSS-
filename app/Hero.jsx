@@ -354,6 +354,35 @@ const Hero = () => {
                   Our Design Process
                 </h1>
             </div>
+
+            <div className="lg:w-1/3">
+              <h3 className="uppercase tracking-wide font-semibold border-b border-black inline-block">
+                Process
+              </h3>
+              <p className="text-lg max-w-md">
+                Discover how our thoughtful process transforms ideas into personalized, functional, and beatifully styled spaces.
+              </p>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-4 md:grid-cols-2 pt-10">
+            {processSteps.map(({ id, imgSrc, title, description }) => (
+              <div key={id} className="w-full relative mb-10">
+                <div className="flex flex-col items-center cursor-pointer relative group">
+                  {/* Circle with image and number */}
+                  <div className="w-[170px] h-[170px] rounded-full shadow-lg flex items-center justify-center relative hover:-translate-y-1.5 transition-transform duration-300">
+                    <img 
+                      src={imgSrc} 
+                      alt="process-icon" 
+                      className="w-[70px] h-[70px] transition-transform duration-500 ease-out items-center group-hover:-rotate-y-360" 
+                    />
+                    <span className="absolute -top-3 right-10 bg-black text-white w-8 h-8 flex items-center justify-center rounded-full text-sm font-semibold select-none">
+                      {id}.
+                    </span>
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </div>
