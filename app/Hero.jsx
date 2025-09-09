@@ -380,6 +380,14 @@ const Hero = () => {
                       {id}.
                     </span>
                   </div>
+
+                  {/* Title */}
+                  <h2 className="font-bricolage text-xl mt-6 mb-4 relative after:absolute after:botton-0 after:left-0 after:h-0.5 after:bg-black after:w-0 group-hover:after:w-full after:transition-width after:duration-300">
+                    {title}
+                  </h2>
+
+                  {/* Description */}
+                  
                 </div>
               </div>
             ))}
