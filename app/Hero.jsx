@@ -223,6 +223,39 @@ const marqueeItems2 = [
   },
 ];
 
+const services2 =[
+  {
+    icon: "/structure-design-icon.png",
+    title: "Structure Design",
+    description: "Engineering safe, sustainable, and functional structures with attention to detail."
+  },
+  {
+    icon: "/residential-area-icon.png",
+    title: "Residential Space",
+    description: "Creating cozy, personalized homes that reflect your unique style and lifestyle."
+  },
+  {
+    icon: "/office-icon.png",
+    title: "Commercial",
+    description: "Designing dynamic bussines environments that inspire productivity and success."
+  },
+  {
+    icon: "/landscape-icon.png",
+    title: "Landscape",
+    description: "Creating breathtaking outdoor spaces that enhance your well-being and ambiance."
+  },
+  {
+    icon: "/Renovation-icon.png",
+    title: "Renovation",
+    description: "Revamping old space into modern, purposeful, and stylish environments."
+  },
+  {
+    icon: "/service-icon-1.svg",
+    title: "Space Planning",
+    description: "Strategic space utilization to maximize potential and long-term value."
+  }
+]
+
 const Hero = () => {
 
   const [activeTab, setActiveTab] = useState('his');
