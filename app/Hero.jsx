@@ -254,6 +254,58 @@ const services2 =[
     title: "Space Planning",
     description: "Strategic space utilization to maximize potential and long-term value."
   }
+];
+
+const galleryItems = [
+  { 
+    img: "/property-1.jpg",
+    title: "Gallery 1",
+  },
+  {
+    img: "/property-2.jpg",
+    title: "Gallery 2",
+  },
+  {
+    img: "/property-3.jpg",
+    title: "Gallery 3",
+  },
+  {
+    img: "/property-4.jpg",
+    title: "Gallery 4",
+  },
+  {
+    img: "/property-5.jpg",
+    title: "Gallery 5",
+  },
+  {
+    img: "/property-6.jpg",
+    title: "Gallery 6",
+  },
+  {
+    img: "/property-7.jpg",
+    title: "Gallery 7",
+  },
+  {
+    img: "/property-8.jpg",
+    title: "Gallery 8",
+  },
+  {
+    img: "/property-9.jpg",
+    title: "Gallery 9",
+  },
+  {
+    img: "/property-10.jpg",
+    title: "Gallery 10",
+  },
+  {
+    img: "/property-11.jpg",
+    title: "Gallery 11",
+  },
+  {
+    img: "/property-12.jpg",
+    title: "Gallery 12",
+  }
+  
 ]
 
 const Hero = () => {
@@ -648,7 +700,7 @@ const Hero = () => {
       </div>
 
       {/* Services 2 */}
-      <section className="px-[8%] lg:-[12%] py-12 bg-gray-100">
+      <section className="px-[8%] lg:px-[12%] py-12 bg-gray-100">
         <div className="flex flex-col lg:flex-row justify-between items-center gap-12"> 
           <div className="lg:w-2/3 mb-8 lg:mb-0">
             <h1 className="text-8xl font-bricolage font-bold">
@@ -692,6 +744,42 @@ const Hero = () => {
               </p>
             </div>
           ))}
+        </div>
+      </section>
+
+      {/* Gallery */}
+      <section className="px-[8%] lg:px-[12%] py-16">
+        <div className="container mx-auto px-4">
+          <h1 className="text-8xl font-bricolage font-bold mb-10">
+            Gallery
+          </h1>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {galleryItems.map((item, idx) => (
+              <a 
+                key={idx} 
+                href={item.img} 
+                data-lightbox={item.lightbox}
+                data-title={item.title}
+                className="group relative block overflow-hidden rounded-md"
+              >
+                <div className="relative w-full h-[400px]">
+                  <Image 
+                    src={item.img} 
+                    alt={item.title} 
+                    fill
+                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                </div>
+
+                <div className="absolute bottom-0 left-0 w-full p-4 bg-gradient-to-t from-black to-transparent z-10 opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500 ease-in-out">
+                  <h4 className="text-white text-3xl font-bricolage">
+                    {item.title}
+                  </h4>
+                </div>
+              </a>
+            ))}
+          </div>
         </div>
       </section>
     </>
