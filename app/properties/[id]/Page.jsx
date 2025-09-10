@@ -1,6 +1,7 @@
 "use client"
 
 import { use } from "react"
+import { Autoplay, EffectCards, Navigation } from "swiper/modules"
 import PropertyData from "@/app/jsonData/property.json"
 import Image from "next/image"
 import Link from "next/link"
@@ -11,9 +12,8 @@ import 'swiper/css'
 const PropertyDetails = ({ params }) => {
 
   const { id } = use(params);
-  console.log(id);
   const property = PropertyData.find(property => property.id === parseInt(id));
-  console.log(property);
+ 
   if (!property) {
     notFound();
   }
@@ -141,8 +141,65 @@ const PropertyDetails = ({ params }) => {
         </div>
       </div>
 
-      <div>
-        
+      <div className="relative px-[8%] lg:px-[12%] py-16 bg-gray-50">
+        <h2 className="text-3xl md:text-4xl font-bold mb-10">
+          Related Properties
+        </h2>
+
+        <Swiper
+          loop={true}
+          modules={[Navigation, Autoplay]}
+          navigation={{
+            nextEl: ".swiper-project-next",
+            prevEl: ".swiper-project-prev",
+          }}
+          autoplay={{
+            delay: 3000
+          }}
+          spaceBetween={24}
+          slidesPerView={1}
+          breakpoints={{
+            640: { slidesPerView: 1 },
+            768: { slidesPerView: 2 },
+            1024: { slidesPerView: 3 },
+          }}
+          className="w-full"
+          onSwiper={(swiper) => {
+            console.log('Swiper initialized:', swiper);
+          }}
+        >
+          {relatedProperties.map((property, index) => (
+            <SwiperSlide key={property.id}>
+              <Link href={`/properties/${property.id}`}>
+                <div className="h-[450px] relative rounded overflow-hidden group">
+                  <Image
+                    src={property.image}
+                    alt={property.title}
+                    fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    className="object-cover transition-transform duration-300 group-hover:scale-105"
+                  />
+                  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4 opacity-0 group-hover:opacity-100 transform translate-y-full group-hover:translate-y-0 transition-all duration-300">
+                    <h4 className="text-white text-xl font-bold mb-1">
+                      {property.title}
+                    </h4>
+                    <p className="text-white text-lg">
+                      ${property.price}
+                    </p>
+                  </div>
+                </div>
+              </Link>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+
+        {/* Navigation buttons */}
+        <div className="swiper-project-prev hidden lg:flex items-center justify-center absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-black/30 hover:bg-black/50 text-white rounded-full cursor-pointer z-10 transition-colors">
+          <i className="ri-arrow-left-s-line text-2xl"></i>
+        </div>
+        <div className="swiper-project-next hidden lg:flex items-center justify-center absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-black/30 hover:bg-black/50 text-white rounded-full cursor-pointer z-10 transition-colors">
+          <i className="ri-arrow-right-s-line text-2xl"></i>
+        </div>
       </div>
     </>
   )
