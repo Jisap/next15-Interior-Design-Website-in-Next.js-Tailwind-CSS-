@@ -537,7 +537,7 @@ const Hero = () => {
         >
         {PropertyData.map((property, index) => (
           <SwiperSlide key={property.id}>
-            <Link href={`properties/${property.id}`}>
+            <Link href={`/properties/${property.id}`}>
               <div className="h-[450px] relative rounded overflow-hidden group">
                 <Image
                   src={property.image}
@@ -546,7 +546,7 @@ const Hero = () => {
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   className="object-cover transition-transform duration-300 group-hover:scale-105"
                 />
-                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
+                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4 opacity-0 group-hover:opacity-100 transform translate-y-full group-hover:translate-y-0 transition-all duration-300">
                   <h4 className="text-white text-xl font-bold mb-1">
                     {property.title}
                   </h4>
@@ -569,6 +569,9 @@ const Hero = () => {
         </div>
 
       </section>
+
+      {/* Marquee 2 */}
+      
     </>
   )
 }
