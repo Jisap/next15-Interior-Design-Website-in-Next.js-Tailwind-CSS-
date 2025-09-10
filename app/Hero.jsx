@@ -198,7 +198,30 @@ const services = [
     title: "Kitchens",
     description: "Crafting modern, efficient kitchens tailored for comfort and utility."
   }
-]
+];
+
+const marqueeItems2 = [
+  {
+    imgs: "/property-1.jpg",
+    title: "Space Planning & Layout"
+  },
+  {
+    imgs: "/property-2.jpg",
+    title: "Color & Material Consultation"
+  },
+  {
+    imgs: "/property-3.jpg",
+    title: "Space Planning & Layout"
+  },
+  {
+    imgs: "/property-4.jpg",
+    title: "Commercial Interior Design"
+  },
+  {
+    imgs: "/property-5.jpg",
+    title: "Furniture & Decor Selection"
+  },
+];
 
 const Hero = () => {
 
@@ -567,11 +590,29 @@ const Hero = () => {
         <div className="swiper-project-next hidden lg:flex items-center justify-center absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-black/30 hover:bg-black/50 text-white rounded-full cursor-pointer z-10 transition-colors">
           <i className="ri-arrow-right-s-line text-2xl"></i>
         </div>
-
       </section>
 
       {/* Marquee 2 */}
-      
+      <div className="overflow-hidden whitespace-nowrap py-12">
+        <div className="animate-marquee flex items-center gap-8">
+          {marqueeItems2.flatMap((item, idx) => ([
+            <div key={`img-${idx}`} className="w-[250px] h-[100px] overflow-hidden rounded-full shrink-0">
+              <Image 
+                src={item.imgs} 
+                alt="marquee-image" 
+                width={250}
+                height={100}
+                className="object-cover w-full h-full"
+              />
+            </div>,
+            <div key={`title-${idx}`} className="min-w-[250px] h-[100px] border-2 border-gray-300 rounded-full flex items-center justify-center shrink-0">
+              <span className="text-black text-2xl font-bold uppercase px-4 text-center">
+                {item.title}
+              </span>
+            </div>
+          ]))}
+        </div>
+      </div>
     </>
   )
 }
