@@ -41,7 +41,7 @@ const PropertyDetails = ({ params }) => {
       </div>
 
       <div className="px-[8%] lg:px-[12%] py-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <div className="relative w-full h-[400px] rounded-lg overflow-hidden shadow-lg">
             <Image 
               src={property.image}
@@ -96,8 +96,53 @@ const PropertyDetails = ({ params }) => {
         </div>
       </div>  
     
-      <div className="px-[8%] lg:px-[12%] py-16">
+      <div className="px-[8%] lg:px-[12%] py-12">
+        <h1 className="text-6xl font-bricolage font-bold mb-10">
+          Description
+        </h1>
+        <p className="text-bricolage text-lg-mb-2">
+          This 2200 sqft residence in Prabha Colony, Godhra, showcases a subtle and sophisticated approach to modern
+          living. Designed with a minimalist mindset, the home balances funcionality with elegance through clean geometry,
+          soft neutral tones, and purposeful spatial planning.
+        </p>
+        <p className="text-bricolage text-lg-mb-2">
+          A minimal yet impactful approach, tailored for healing and clarity.
+        </p>
+        <p className="text-bricolage text-lg-mb-2">
+          A compact yet impactful home that speaks of thoughtful design and refined simplicity.
+        </p>
+      </div>
 
+      <div className="px-[8%] lg:px-[12%] py-16 rounded-xl shadow-sm bg-white">
+        <h1 className="text-3xl md:text-4xl font-bold mb-10">
+          Amenities
+        </h1>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 text-gray-700">
+          <div className="flex items-center gap-3">
+            <i className="bi bi-lightning-charge text-yellow-600 text-2xl"></i>
+            <span className="font-medium">Power Back Up</span>
+          </div>
+          <div className="flex items-center gap-3">
+            <i className="bi bi-wifi text-yellow-600 text-2xl"></i>
+            <span className="font-medium">Internet/Wifi Connectivity</span>
+          </div>
+          <div className="flex items-center gap-3">
+            <i className="bi bi-tools text-yellow-600 text-2xl"></i>
+            <span className="font-medium">Maintenance Staff</span>
+          </div>
+          <div className="flex items-center gap-3">
+            <i className="bi bi-building text-yellow-600 text-2xl"></i>
+            <span className="font-medium">Vaastu Compliant</span>
+          </div>
+          <div className="flex items-center gap-3">
+            <i className="bi bi-houses text-yellow-600 text-2xl"></i>
+            <span className="font-medium">Rentable Community Space</span>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        
       </div>
     </>
   )
