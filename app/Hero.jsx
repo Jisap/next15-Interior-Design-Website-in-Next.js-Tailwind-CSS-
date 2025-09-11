@@ -1,10 +1,11 @@
 "use client"
 
 import { Swiper, SwiperSlide } from "swiper/react"
-import { Autoplay, EffectCards, Navigation } from "swiper/modules"
+import { Autoplay, EffectCards, EffectFade, Navigation } from "swiper/modules"
 import "swiper/css"
 import "swiper/css/navigation"
 import "swiper/css/effect-cards"
+import "swiper/css/effect-fade"
 import Image from "next/image"
 import Link from "next/link"
 import { useRef, useState } from "react"
@@ -319,8 +320,8 @@ const Hero = () => {
       {/* Hero */}
       <div className="w-full h-screen relative overflow-hidden">
         <Swiper
-          modules={[Navigation, EffectCards, Autoplay]}
-          effect={"cards"}
+          modules={[Navigation, EffectFade, Autoplay]}
+          effect={"fade"}
           grabCursor={true}
           autoplay={{
             delay: 4000,
@@ -398,11 +399,11 @@ const Hero = () => {
       </div>
 
       {/* About */}
-      <section className="px-[8%] lg:-[12%] py-12">
+      <section className="px-[8%] lg:px-[12%] py-12">
           {/* Top section */}
           <div className="flex flex-col lg:flex-row justify-between items-center gap-12">
             <div className="lg:w-2/3">
-              <h2 className="text-[4rem] leading-[4rem] lg:text-[6rem] lg:leading-[6rem] fon tracking-[.2rem] font-[bricolage-font]">
+              <h2 className="text-[3.5rem] leading-[3.5rem] sm:text-[4rem] sm:leading-[4rem] lg:text-[6rem] lg:leading-[6rem] tracking-[.1rem] font-bricolage font-semibold">
                 Interior & Architecture Design Solutions
               </h2>
             </div>
@@ -495,12 +496,12 @@ const Hero = () => {
         <div className="container mx-auto px-4">
           <div className="flex flex-col lg:flex-row justify-between items-center mb-12">
             <div className="lg:w-1/2 mb-10 lg:mb-0">
-                <h1 className="text-8xl font-[bricolage-font] font-semibold">
+              <h1 className="text-[3.5rem] leading-[3.5rem] sm:text-6xl sm:leading-none lg:text-8xl lg:leading-none font-bricolage font-semibold">
                   Our Design Process
                 </h1>
             </div>
 
-            <div className="lg:w-1/3">
+            <div className="lg:w-1/3 ">
               <h3 className="uppercase tracking-wide font-semibold border-b border-black inline-block">
                 Process
               </h3>
@@ -543,10 +544,10 @@ const Hero = () => {
       </div>
 
       {/* Services */}
-      <div className="px-[8%] lg:-[12%] py-12">
+      <div className="px-[8%] lg:px-[12%] py-12">
         <div className="flex flex-col lg:flex-row justify-between items-center gap-12">
           <div className="lg:w-2/3 mb-8 lg:mb-0">
-            <h1 className="text-8xl font-bricolage font-bold">
+            <h1 className="text-[3.5rem] leading-[3.5rem] lg:text-8xl lg:leading-none font-bricolage font-bold">
               Interior Design Solutions
             </h1>
           </div>
@@ -598,7 +599,7 @@ const Hero = () => {
       <section className="px-[8%] lg:px-[12%] py-16 relative">
           <div className="flex flex-col lg:flex-row justify-between items-center mb-12">
             <div className="lg:w-2/3 mb-8 lg:mb-0">
-              <h1 className="text-8xl font-bricolage font-bold">
+            <h1 className="text-[3.5rem] leading-[3.5rem] lg:text-8xl lg:leading-none font-bricolage font-bold">
                 Our Properties
               </h1>
             </div>
@@ -703,7 +704,7 @@ const Hero = () => {
       <section className="px-[8%] lg:px-[12%] py-12 bg-gray-100">
         <div className="flex flex-col lg:flex-row justify-between items-center gap-12"> 
           <div className="lg:w-2/3 mb-8 lg:mb-0">
-            <h1 className="text-8xl font-bricolage font-bold">
+            <h1 className="text-[3.5rem] leading-[3.5rem] lg:text-8xl lg:leading-none font-bricolage font-bold">
               Architecture <br/> Design Solutions
             </h1>
           </div>
@@ -750,7 +751,7 @@ const Hero = () => {
       {/* Gallery */}
       <section className="px-[8%] lg:px-[12%] py-16">
         <div className="container mx-auto px-4">
-          <h1 className="text-8xl font-bricolage font-bold mb-10">
+          <h1 className="text-[3.5rem] leading-[3.5rem] lg:text-8xl lg:leading-none font-bricolage font-bold mb-10">
             Gallery
           </h1>
 
@@ -796,7 +797,7 @@ const Hero = () => {
           </video>
 
           <div className="absolute inset-0 bg-black/70 flex flex-col items-center justify-center text-center px-4 z-10">
-            <h2 className="text-5xl md:text-6xl font-bricolage font-bold text-white">
+            <h2 className="text-5xl md:text-6xl leading-tight font-bricolage font-bold text-white">
               Ready For An Upgrade ? Let's Talk
             </h2>
 
@@ -805,6 +806,8 @@ const Hero = () => {
             </button>
           </div>
       </div>
+
+      {/* Testimonials */}
     </>
   )
 }
