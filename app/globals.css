@@ -256,15 +256,10 @@ body {
   height: auto;
 }
 
-.swiper-slide img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-/* Swiper slide images */
-.swiper-slide img {
+/* This rule targets only images that are DIRECT children of a slide,
+   like in the Hero carousel, preventing it from affecting nested images
+   like avatars or icons in other carousels. */
+.swiper-slide > img {
   display: block;
   width: 100%;
   height: 100%;

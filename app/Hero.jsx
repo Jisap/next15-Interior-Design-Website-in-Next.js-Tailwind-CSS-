@@ -1,11 +1,12 @@
 "use client"
 
 import { Swiper, SwiperSlide } from "swiper/react"
-import { Autoplay, EffectCards, EffectFade, Navigation } from "swiper/modules"
+import { Autoplay, EffectCards, EffectFade, Navigation, Pagination } from "swiper/modules"
 import "swiper/css"
 import "swiper/css/navigation"
 import "swiper/css/effect-cards"
 import "swiper/css/effect-fade"
+import "swiper/css/pagination"
 import Image from "next/image"
 import Link from "next/link"
 import { useRef, useState } from "react"
@@ -307,7 +308,40 @@ const galleryItems = [
     title: "Gallery 12",
   }
   
-]
+];
+
+const testimonials = [
+  {
+    name: "Riya Shah",
+    location: "New York, NY",
+    image: "/User.jpg",
+    quote: "We hired them for our home's complete interior revamp. Every detail was handled with professionalism and crativity. Highly recommended!."
+  },
+  {
+    name: "Arjun Singh",
+    location: "Bengaluru, India",
+    image: "/User.jpg",
+    quote: "Their team transformed our office into a space that's both functional and visually impressive. The design flo was flawless and well thought out."
+  },
+  {
+    name: "John Doe",
+    location: "Chicago, USA",
+    image: "/User.jpg",
+    quote: "I was blown away by their attention to detail and the level of craftsmanship that went into every aspect of their design. Their work is truly exceptional."
+  },
+  {
+    name: "Jane Smith",
+    location: "Paris, France",
+    image: "/User.jpg",
+    quote: "Their designs are not only visually stunning but also highly functional. Their attention to detail and attention to detail are truly impressive."
+  },
+  {
+    name: "Sarah Lee",
+    location: "London, UK",
+    image: "/User.jpg",
+    quote: "We wanted a modern kitchen and minimal living room. They truly understood our taste and delivered beyond expectations. Super satisfied with their work."
+  }
+];
 
 const Hero = () => {
 
@@ -808,6 +842,80 @@ const Hero = () => {
       </div>
 
       {/* Testimonials */}
+      <section className="px-[8%] lg:px-[12%] py-20 bg-white">
+        <div className="flex flex-col lg:flex-row justify-between items-center mb-12 gap-8">
+          <div className="lg:w-1/2">
+            <h1 className="text-[3.5rem] leading-[3.5rem] lg:text-7xl lg:leading-none font-bricolage font-bold">
+              Client <br /> Testimonials
+            </h1>
+          </div>
+
+          <div className="lg:w-2/5">
+            <h3 className="text-xl font-semibold mb-2">
+              Testimonials
+            </h3>
+
+            <p className="text-gray-600">
+              Discover how oir thoughtful process transforms ideas into personalized, functional, and beatifully styled spaces.
+            </p>
+          </div>
+        </div>
+
+        <Swiper
+          modules={[Pagination, Autoplay]}
+          spaceBetween={30}
+          loop={true}
+          autoplay={{
+            delay: 5000,
+            disableOnInteraction: false,
+          }}
+          pagination={{ clickable: true }}
+          breakpoints={{
+            640: {
+              slidesPerView: 1,
+            },
+            768: {
+              slidesPerView: 2,
+            },
+            1024: {
+              slidesPerView: 3,
+            },
+          }}
+          className="w-full !pb-12"
+        >
+          {testimonials.map((testimonial, index) => (
+            <SwiperSlide key={index}>
+              <div className="bg-gray-100 p-8 rounded-lg shadow-lg h-full flex flex-col justify-between">
+                <div>
+                  <Image 
+                    src="/quote.svg" 
+                    alt="quote icon" 
+                    width={32}
+                    height={32}
+                    className="w-8 h-8 object-contain mb-4 opacity-25"
+                  />
+                  <p className="text-gray-700 mb-6 text-lg italic">
+                    "{testimonial.quote}"
+                  </p>
+                </div>
+                <div className="flex items-center mt-auto">
+                  <Image 
+                    src={testimonial.image}
+                    alt={testimonial.name}
+                    width={48}
+                    height={48}
+                    className="w-12 h-12 rounded-full object-cover mr-4"
+                  />
+                  <div>
+                    <h4 className="font-semibold text-lg">{testimonial.name}</h4>
+                    <p className="text-sm text-gray-500">{testimonial.location}</p>
+                  </div>
+                </div>
+              </div>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </section>
     </>
   )
 }
