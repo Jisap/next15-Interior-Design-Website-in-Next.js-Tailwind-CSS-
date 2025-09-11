@@ -343,6 +343,14 @@ const testimonials = [
   }
 ];
 
+const socialImages = [
+    "/social-slide-1.jpg",
+    "/social-slide-2.jpg",
+    "/social-slide-3.jpg",
+    "/social-slide-4.jpg",
+    "/social-slide-5.jpg",
+];
+
 const Hero = () => {
 
   const [activeTab, setActiveTab] = useState('his');
@@ -916,6 +924,35 @@ const Hero = () => {
           ))}
         </Swiper>
       </section>
+
+      {/* Social Links */}
+      <div className="w-full h-[500px]">
+        <Swiper
+          modules={[Autoplay]}
+          spaceBetween={0}
+          slidesPerView={2}
+          loop={true}
+          autoPlay={{
+            delay: 3000,
+            disableOnInteraction: false,
+          }}
+          className="w-full h-full"
+        >
+          {socialImages.map((image, index) => (
+            <SwiperSlide key={index}>
+              <div className="relative w-full h-[500px]">
+                <Image 
+                  src={image}
+                  alt="social-image"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  className="object-cover"
+                />
+              </div>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </div>
     </>
   )
 }
