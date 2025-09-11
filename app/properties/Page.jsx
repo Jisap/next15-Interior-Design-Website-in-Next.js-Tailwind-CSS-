@@ -4,7 +4,7 @@ import PropertyData from "@/app/jsonData/property.json";
 
 const PropertiesPage = () => {
   return (
-    <section className="px-[8%] lg:px-[12%] py-26">
+    <section className="px-[8%] lg:px-[12%] py-30">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bricolage font-bold">
