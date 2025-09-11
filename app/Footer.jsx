@@ -61,7 +61,7 @@ const Footer = () => {
                   </h5>
 
                   <p className="text-lg font-medium max-w-sm">
-                    401, Skyline Drive, San Francisco, CA 94103
+                    401, Skyline Drive, <br/> San Francisco,<br/> CA 94103
                   </p>
                 </div>
               </div>
@@ -90,7 +90,7 @@ const Footer = () => {
         <div className="border-b border-gray-300 py-6 bg-white">
           <p className="text-center text-lg">
             Copyright © 2025 LivingLines. All rights reserved By
-            <a href="#" className="font-semibold hover:underline">k2infocom</a>
+            <a href="#" className="font-semibold hover:underline"> k2infocom</a>
           </p>
         </div>
     
