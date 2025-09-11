@@ -655,7 +655,7 @@ const Hero = () => {
                 We build our projects with your dreams and ideas. Touch modern concepts and designs with Shree Hari Associates.
               </p>
 
-              <a href="/Projects">
+              <a href="/properties">
                 <button className="btn py-3 px-0 text-lg font-medium flex items-center">
                   <span className="text-black">View More</span>
                   <i className="bi bi-arrow-up-right ms-2"></i>
