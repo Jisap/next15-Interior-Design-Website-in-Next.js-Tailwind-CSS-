@@ -27,7 +27,7 @@ const About = () => {
       scrollTrigger: {
         trigger: aboutEl,
         start: "top 80%", // Start animation when the top of the section is 80% from the top of the viewport
-        toggleActions: "play none none none", // Play on enter
+        toggleActions: "restart none none reset", // This will restart the animation on enter and reset it when it leaves the viewport scrolling up.
       },
     })
 
@@ -66,16 +66,25 @@ const About = () => {
   }, [])
 
   return (
-    <section ref={aboutSectionRef} className="px-[8%] lg:px-[12%] py-12 overflow-hidden">
+    <section 
+      ref={aboutSectionRef} 
+      className="px-[8%] lg:px-[12%] py-12 overflow-hidden"
+    >
       {/* Top section */}
       <div className="flex flex-col lg:flex-row justify-between items-center gap-12">
         <div className="lg:w-2/3">
-          <h2 ref={aboutTitleRef} className="text-[3.5rem] leading-[3.5rem] sm:text-[4rem] sm:leading-[4rem] lg:text-[6rem] lg:leading-[6rem] tracking-[.1rem] font-bricolage font-semibold">
+          <h2 
+            ref={aboutTitleRef} 
+            className="text-[3.5rem] leading-[3.5rem] sm:text-[4rem] sm:leading-[4rem] lg:text-[6rem] lg:leading-[6rem] tracking-[.1rem] font-bricolage font-semibold"
+          >
             Interior & Architecture Design Solutions
           </h2>
         </div>
 
-        <div ref={aboutInfoRef} className="lg:w-1/2">
+        <div 
+          ref={aboutInfoRef} 
+          className="lg:w-1/2"
+        >
           <h3 className="uppercase tracking-wider font-semibold border-b pb-2 mb-6 text-sm w-fit">About Us</h3>
           <p className="text-base mb-4 text-gray-700 ">At Shree Hari Associates, we're committed to transforming spaces through creative vision, elegant design, and solutions that truly reflect your lifestyle.</p>
           <a className="inline-flex items-center text-black font-medium hover:underline text-lg">Company Info <span className="ml-2"><i className="bi bi-arrow-up-right ms-2"></i></span></a>
@@ -84,22 +93,58 @@ const About = () => {
 
       {/* Main section */}
       <div className="mt-12 flex flex-col lg:flex-row gap-10">
-        <div ref={aboutImageRef} className="lg:w-1/2 w-full">
-          <Swiper modules={[Navigation, EffectCards, Autoplay]} loop={true} effect={"cards"} grabCursor={true} autoplay={{ delay: 1500, disableOnInteraction: false }} navigation={{ nextEl: ".swiper-about-next", prevEl: ".swiper-about-prev" }} className="rounded" style={{ padding: "30px" }}>
-            {["/interior-image-01.jpg", "/interior-image-02.jpg", "/interior-image-05.jpg"].map((src, index) => (
+        <div 
+          ref={aboutImageRef} 
+          className="lg:w-1/2 w-full"
+        >
+          <Swiper 
+            modules={[Navigation, EffectCards, Autoplay]} 
+            loop={true} 
+            effect={"cards"} 
+            grabCursor={true} 
+            autoplay={{ delay: 1500, disableOnInteraction: false }} 
+            navigation={{ 
+              nextEl: ".swiper-about-next", 
+              prevEl: ".swiper-about-prev" 
+            }} 
+            className="rounded" style={{ padding: "30px" }}
+          >
+            {[
+              "/interior-image-01.jpg", 
+              "/interior-image-02.jpg", 
+              "/interior-image-05.jpg"
+            ].map((src, index) => (
               <SwiperSlide key={index}>
-                <img src={src} alt="interior-image" className="w-full h-[580px] object-cover rounded" />
+                <img 
+                  src={src} 
+                  alt="interior-image" 
+                  className="w-full h-[580px] object-cover rounded" 
+                />
               </SwiperSlide>
             ))}
           </Swiper>
         </div>
 
         {/* Tabs & Content */}
-        <div ref={aboutTabsRef} className="lg:w-1/2 w-full px-0 lg:px-10 pt-10">
+        <div 
+          ref={aboutTabsRef} 
+          className="lg:w-1/2 w-full px-0 lg:px-10 pt-10"
+        >
           {/* Tabs */}
           <div className="flex gap-6 border-b mb-6">
             {tabs.map((tab) => (
-              <button key={tab.key} className={`relative pb-2 text-lg font-medium transition-colors cursor-pointer ${activeTab === tab.key ? "text-black after:absolute after:content-[''] after:bottom-0 after:left-0 after:w-full after:h-1 after:bg-black" : "text-gray-400 hover:text-black"}`} onClick={() => setActiveTab(tab.key)}>{tab.label}</button>
+              <button 
+                key={tab.key} 
+                className={`
+                  relative pb-2 text-lg font-medium transition-colors cursor-pointer 
+                  ${activeTab === tab.key 
+                    ? "text-black after:absolute after:content-[''] after:bottom-0 after:left-0 after:w-full after:h-1 after:bg-black" 
+                    : "text-gray-400 hover:text-black"}
+                `} 
+                onClick={() => setActiveTab(tab.key)}
+              >
+                {tab.label}
+              </button>
             ))}
           </div>
 
