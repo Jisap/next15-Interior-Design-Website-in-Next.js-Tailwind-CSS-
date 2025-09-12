@@ -2,6 +2,8 @@ import Image from "next/image";
 import Link from "next/link";
 import PropertyData from "@/app/jsonData/property.json";
 
+
+
 const PropertiesPage = () => {
   return (
     <section className="px-[8%] lg:px-[12%] py-30">
