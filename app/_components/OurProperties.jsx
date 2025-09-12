@@ -1,26 +1,63 @@
+"use client"
+
+import { useRef, useLayoutEffect } from "react"
+import { gsap } from "gsap"
+import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { Swiper, SwiperSlide } from "swiper/react"
-import { Autoplay, EffectCards, EffectFade, Navigation, Pagination } from "swiper/modules"
+import { Autoplay, Navigation } from "swiper/modules"
 import "swiper/css"
 import "swiper/css/navigation"
-import "swiper/css/effect-cards"
-import "swiper/css/effect-fade"
-import "swiper/css/pagination"
 
 import PropertyData from "@/app/jsonData/property.json"
 import Link from "next/link"
 import Image from "next/image"
 
+gsap.registerPlugin(ScrollTrigger)
+
 const OurProperties = () => {
+  const propertiesEl = useRef(null)
+
+  useLayoutEffect(() => {
+    const ctx = gsap.context(() => {
+      // Set initial state
+      gsap.set([".header-anim", ".swiper-anim", ".nav-anim"], { opacity: 0, y: 50 });
+
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: propertiesEl.current,
+          start: "top 70%",
+          toggleActions: "play none none none",
+        }
+      });
+
+      tl.to(".header-anim", {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        stagger: 0.2,
+        ease: "power3.out"
+      }).to([".swiper-anim", ".nav-anim"], {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        ease: "power3.out",
+      }, "-=0.7"); // Overlap for a smoother flow
+
+    }, propertiesEl);
+
+    return () => ctx.revert();
+  }, []);
+
   return (
-    <section className="px-[8%] lg:px-[12%] py-16 relative">
+    <section ref={propertiesEl} className="px-[8%] lg:px-[12%] py-16 relative overflow-hidden">
       <div className="flex flex-col lg:flex-row justify-between items-center mb-12">
-        <div className="lg:w-2/3 mb-8 lg:mb-0">
+        <div className="lg:w-2/3 mb-8 lg:mb-0 header-anim">
           <h1 className="text-[3.5rem] leading-[3.5rem] lg:text-8xl lg:leading-none font-bricolage font-bold">
             Our Properties
           </h1>
         </div>
 
-        <div className="lg:w-1/3">
+        <div className="lg:w-1/3 header-anim">
           <h3 className="text-2xl font-jost font-semibold mb-3">
             Our Properties
           </h3>
@@ -55,10 +92,7 @@ const OurProperties = () => {
           768: { slidesPerView: 2 },
           1024: { slidesPerView: 3 },
         }}
-        className="w-full"
-        onSwiper={(swiper) => {
-          console.log('Swiper initialized:', swiper);
-        }}
+        className="w-full swiper-anim"
       >
         {PropertyData.map((property, index) => (
           <SwiperSlide key={property.id}>
@@ -86,10 +120,10 @@ const OurProperties = () => {
       </Swiper>
 
       {/* Navigation buttons */}
-      <div className="swiper-project-prev hidden lg:flex items-center justify-center absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-black/30 hover:bg-black/50 text-white rounded-full cursor-pointer z-10 transition-colors">
+      <div className="swiper-project-prev nav-anim hidden lg:flex items-center justify-center absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-black/30 hover:bg-black/50 text-white rounded-full cursor-pointer z-10 transition-colors">
         <i className="ri-arrow-left-s-line text-2xl"></i>
       </div>
-      <div className="swiper-project-next hidden lg:flex items-center justify-center absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-black/30 hover:bg-black/50 text-white rounded-full cursor-pointer z-10 transition-colors">
+      <div className="swiper-project-next nav-anim hidden lg:flex items-center justify-center absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-black/30 hover:bg-black/50 text-white rounded-full cursor-pointer z-10 transition-colors">
         <i className="ri-arrow-right-s-line text-2xl"></i>
       </div>
     </section>
