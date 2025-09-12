@@ -1,12 +1,51 @@
+"use client"
+
+import { useRef, useLayoutEffect } from "react"
+import { gsap } from "gsap"
+import { ScrollTrigger } from "gsap/ScrollTrigger"
 import Image from 'next/image'
-import React from 'react'
 import { galleryItems } from '../constants'
 
+gsap.registerPlugin(ScrollTrigger)
+
 const Galllery = () => {
+  const galleryEl = useRef(null)
+
+  useLayoutEffect(() => {
+    const ctx = gsap.context(() => {
+      // Set initial state
+      gsap.set([".gallery-title", ".gallery-item"], { opacity: 0, y: 50 });
+
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: galleryEl.current,
+          start: "top 70%",
+          toggleActions: "restart none none reset",
+        }
+      });
+
+      tl.to(".gallery-title", {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        ease: "power3.out"
+      }).to(".gallery-item", {
+        opacity: 1,
+        y: 0,
+        duration: 0.8,
+        stagger: 0.1, // A small stagger for a quick ripple effect
+        ease: "power3.out",
+      }, "-=0.7"); // Overlap for a smoother flow
+
+    }, galleryEl);
+
+    return () => ctx.revert();
+  }, []);
+
   return (
-    <section className="px-[8%] lg:px-[12%] py-16">
+    <section ref={galleryEl} className="px-[8%] lg:px-[12%] py-16 overflow-hidden">
       <div className="container mx-auto px-4">
-        <h1 className="text-[3.5rem] leading-[3.5rem] lg:text-8xl lg:leading-none font-bricolage font-bold mb-10">
+        <h1 className="gallery-title text-[3.5rem] leading-[3.5rem] lg:text-8xl lg:leading-none font-bricolage font-bold mb-10">
           Gallery
         </h1>
 
@@ -17,7 +56,7 @@ const Galllery = () => {
               href={item.img}
               data-lightbox={item.lightbox}
               data-title={item.title}
-              className="group relative block overflow-hidden rounded-md"
+              className="gallery-item group relative block overflow-hidden rounded-md"
             >
               <div className="relative w-full h-[400px]">
                 <Image
