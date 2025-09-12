@@ -261,50 +261,62 @@ export const services2 = [
 
 export const galleryItems = [
   {
+    id: 1,
     img: "/property-1.jpg",
     title: "Gallery 1",
   },
   {
+    id:2,
     img: "/property-2.jpg",
     title: "Gallery 2",
   },
   {
+    id:3,
     img: "/property-3.jpg",
     title: "Gallery 3",
   },
   {
+    id: 4,
     img: "/property-4.jpg",
     title: "Gallery 4",
   },
   {
+    id: 5,
     img: "/property-5.jpg",
     title: "Gallery 5",
   },
   {
+    id: 6,
     img: "/property-6.jpg",
     title: "Gallery 6",
   },
   {
+    id: 7,
     img: "/property-7.jpg",
     title: "Gallery 7",
   },
   {
+    id: 8,
     img: "/property-8.jpg",
     title: "Gallery 8",
   },
   {
+    id: 9,
     img: "/property-9.jpg",
     title: "Gallery 9",
   },
   {
+    id: 10,
     img: "/property-10.jpg",
     title: "Gallery 10",
   },
   {
+    id: 11,
     img: "/property-11.jpg",
     title: "Gallery 11",
   },
   {
+    id: 12,
     img: "/property-12.jpg",
     title: "Gallery 12",
   },

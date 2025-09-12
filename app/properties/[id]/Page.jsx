@@ -43,13 +43,19 @@ const PropertyDetails = ({ params }) => {
       <div className="px-[8%] lg:px-[12%] py-10">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <div className="relative w-full h-[400px] rounded-lg overflow-hidden shadow-lg">
-            <Image 
-              src={property.image}
-              alt={property.title}
-              fill
-              className="object-cover"
-              priority
-            />
+            <a 
+              href={property.image} 
+              data-lightbox={property.lightbox} 
+              data-title={property.title}
+            >
+              <Image 
+                src={property.image}
+                alt={property.title}
+                fill
+                className="object-cover"
+                priority
+              />
+            </a>
           </div>
 
           <div className="p-8">

@@ -4,6 +4,7 @@ import { useRef, useLayoutEffect } from "react"
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 import Image from 'next/image'
+import Link from 'next/link'
 import { galleryItems } from '../constants'
 
 gsap.registerPlugin(ScrollTrigger)
@@ -51,11 +52,9 @@ const Galllery = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {galleryItems.map((item, idx) => (
-            <a
-              key={idx}
-              href={item.img}
-              data-lightbox={item.lightbox}
-              data-title={item.title}
+            <Link
+              key={`property-${item.id}-${idx}`} // Es mejor práctica usar un ID único para la key
+              href={`/properties/${item.id}`}
               className="gallery-item group relative block overflow-hidden rounded-md"
             >
               <div className="relative w-full h-[400px]">
@@ -72,7 +71,7 @@ const Galllery = () => {
                   {item.title}
                 </h4>
               </div>
-            </a>
+            </Link>
           ))}
         </div>
       </div>
