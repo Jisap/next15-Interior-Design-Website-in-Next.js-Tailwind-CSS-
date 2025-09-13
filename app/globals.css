@@ -169,23 +169,23 @@ body {
 
 /* Disparar animaciones SOLO cuando el slide está activo */
 .swiper-slide-active .hero-content span {
-  @apply animate-[Anim-fade-top_var(--transition-slow)_linear_0.8s_forwards];
+  @apply animate-[Anim-fade-top_var(--transition-slow)_cubic-bezier(0.23,1,0.32,1)_0.8s_forwards];
 }
 
 .swiper-slide-active .hero-content h1 {
-  @apply animate-[Anim-fade-left_var(--transition-slow)_linear_0.3s_forwards];
+  @apply animate-[Anim-fade-left_var(--transition-slow)_cubic-bezier(0.23,1,0.32,1)_0.3s_forwards];
 }
 
 .swiper-slide-active .hero-content p {
-  @apply animate-[Anim-fade-bottom_var(--transition-slow)_linear_1s_forwards];
+  @apply animate-[Anim-fade-bottom_var(--transition-slow)_cubic-bezier(0.23,1,0.32,1)_1s_forwards];
 }
 
 .swiper-slide-active .hero-content p:first-child {
-  @apply !animate-[Anim-fade-bottom_var(--transition-slow)_linear_0.8s_forwards];
+  @apply !animate-[Anim-fade-bottom_var(--transition-slow)_cubic-bezier(0.23,1,0.32,1)_0.8s_forwards];
 }
 
 .swiper-slide-active .hero-content button {
-  @apply !animate-[Anim-fade-bottom_var(--transition-slow)_linear_1.3s_forwards];
+  @apply !animate-[Anim-fade-bottom_var(--transition-slow)_cubic-bezier(0.23,1,0.32,1)_1.3s_forwards];
 }
 
 @media (max-width: 991px) {
