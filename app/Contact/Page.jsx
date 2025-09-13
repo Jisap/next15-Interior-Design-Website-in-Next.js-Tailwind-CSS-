@@ -1,12 +1,49 @@
-import React from 'react'
+'use client'
+
+import { useRef } from "react"
+import { useGSAP } from "@gsap/react"
+import gsap from "gsap"
+import { ScrollTrigger } from "gsap/ScrollTrigger"
+
+gsap.registerPlugin(ScrollTrigger)
 
 const Page = () => {
+  const container = useRef()
+
+  useGSAP(() => {
+    gsap.from(".title-animation", {
+      y: 50,
+      opacity: 0,
+      duration: 1,
+      ease: "power3.out",
+      delay: 0.2
+    });
+
+    const animateOnScroll = (selector, props) => {
+      gsap.from(selector, {
+        scrollTrigger: {
+          trigger: selector,
+          start: "top 85%",
+          toggleActions: "play none none none"
+        },
+        ...props
+      });
+    };
+
+    animateOnScroll(".contact-left-animation", { x: -100, opacity: 0, duration: 1 });
+    animateOnScroll(".contact-right-animation", { x: 100, opacity: 0, duration: 1 });
+    animateOnScroll(".banner-image-animation", { scale: 0.9, opacity: 0, duration: 1 });
+    animateOnScroll(".banner-text-animation", { y: 50, opacity: 0, duration: 1, delay: 0.2 });
+    animateOnScroll(".map-animation", { y: 50, opacity: 0, duration: 1 });
+
+  }, { scope: container })
+
   return (
     <>
-      <div>
+      <div ref={container}>
         {/* title */}
         <div className='relative flex justify-center items-center h-[75vh] overflow-hidden'>
-          <h1 className='absolute text-white font-bricolage text-6xl lg:text-8xl font-bold z-20'>
+          <h1 className='absolute text-white font-bricolage text-6xl lg:text-8xl font-bold z-20 title-animation'>
             Contact Us
           </h1>
           <video
@@ -26,7 +63,7 @@ const Page = () => {
           <div className='container mx-auto px-4'>
             <div className='flex flex-col lg:flex-row gap-10'>
               {/* left side */}
-              <div className='lg:w-1/2 space-y-6'>
+              <div className='lg:w-1/2 space-y-6 contact-left-animation'>
                 <h1 className='text-4xl lg:text-6xl font-bricolage font-bold'>
                   Let's Talk
                 </h1>
@@ -61,7 +98,7 @@ const Page = () => {
               </div>
 
               {/* right side */}
-              <div className='lg:w-2/5'>
+              <div className='lg:w-2/5 contact-right-animation'>
                 <form className='space-y-4'>
                   <input 
                     type="text" 
@@ -108,11 +145,11 @@ const Page = () => {
           <div className='overflow-hidden'>
             <div className='bg-white rounded flex flex-col md:flex-row gap-6 p-10 items-center shadow-md'>
               {/* image */}
-              <div className='w-full md:w-2/5 h-[400px]'>
+              <div className='w-full md:w-2/5 h-[400px] banner-image-animation'>
                 <img src="/contact-banner.jpg" alt="contact-banner" className='w-full h-full object-cover rounded-2xl'/>
               </div>
               {/* info */}
-              <div className='w-full md:w-3/5'>
+              <div className='w-full md:w-3/5 banner-text-animation'>
                 <h1 className='text-4xl md:text-6xl font-bold'>
                   Your Dream Start Here
                 </h1>
@@ -123,7 +160,7 @@ const Page = () => {
             </div>
 
             {/* Google Map */}
-            <div className='mt-10'>
+            <div className='mt-10 map-animation'>
               <iframe 
                 src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d10499.998333680309!2d2.351183757322502!3d48.85821833418118!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses!2ses!4v1757768514524!5m2!1ses!2ses" 
                 className="w-full h-[450px] rounded-[10px]" 
