@@ -1,8 +1,7 @@
-[build]
-  command = "npm run build"
-  publish = "dist"
 
-[build.environment]
-  NODE_VERSION = "20"
 
-# Sin plugin para exportación estática
+# El plugin de Next.js se encargará de todo automáticamente.
+# Netlify lo detecta gracias a tu `package.json`, pero es buena práctica
+# especificarlo para asegurar que se use la versión correcta.
+[[plugins]]
+  package = "@netlify/plugin-nextjs"

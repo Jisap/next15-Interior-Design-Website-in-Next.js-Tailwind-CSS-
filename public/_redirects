@@ -1,1 +1,8 @@
+# Handle client-side routing
+/about /about/index.html 200
+/properties /properties/index.html 200
+/services /services/index.html 200
+/contact /contact/index.html 200
+
+# Fallback for other routes
 /*    /index.html   200
