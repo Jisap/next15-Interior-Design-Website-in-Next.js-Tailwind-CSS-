@@ -16,54 +16,60 @@ const About = () => {
   const aboutInfoRef = useRef(null)
   const aboutImageRef = useRef(null)
   const aboutTabsRef = useRef(null)
+  const tabContentRef = useRef(null)
 
   useLayoutEffect(() => {
     gsap.registerPlugin(ScrollTrigger)
 
-    const aboutEl = aboutSectionRef.current
+    const ctx = gsap.context(() => {
+      // Create a timeline for the animations
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: aboutSectionRef.current,
+          start: "top 80%",
+          toggleActions: "play none none none",
+        },
+      })
 
-    // Create a timeline for the animations
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: aboutEl,
-        start: "top 80%", // Start animation when the top of the section is 80% from the top of the viewport
-        toggleActions: "restart none none reset", // This will restart the animation on enter and reset it when it leaves the viewport scrolling up.
-      },
-    })
+      // Animate the main title and the info block
+      tl.fromTo(
+        aboutTitleRef.current,
+        { y: 50, autoAlpha: 0 },
+        { y: 0, autoAlpha: 1, duration: 0.8, ease: "power3.out" }
+      ).fromTo(
+        aboutInfoRef.current.children,
+        { x: 50, autoAlpha: 0 },
+        { x: 0, autoAlpha: 1, duration: 0.6, stagger: 0.2, ease: "power3.out" },
+        "-=0.5"
+      )
 
-    // Animate the main title and the info block
-    tl.fromTo(
-      aboutTitleRef.current,
-      { y: 50, autoAlpha: 0 },
-      { y: 0, autoAlpha: 1, duration: 0.8, ease: "power3.out" }
-    ).fromTo(
-      aboutInfoRef.current.children,
-      { x: 50, autoAlpha: 0 },
-      { x: 0, autoAlpha: 1, duration: 0.6, stagger: 0.2, ease: "power3.out" },
-      "-=0.5"
-    )
+      // Animate the image swiper and the tabs section
+      tl.fromTo(
+        aboutImageRef.current,
+        { x: -50, autoAlpha: 0 },
+        { x: 0, autoAlpha: 1, duration: 0.8, ease: "power3.out" },
+        "-=0.5"
+      ).fromTo(
+        aboutTabsRef.current,
+        { x: 50, autoAlpha: 0 },
+        { x: 0, autoAlpha: 1, duration: 0.8, ease: "power3.out" },
+        "<"
+      )
+    }, aboutSectionRef)
 
-    // Animate the image swiper and the tabs section
-    tl.fromTo(
-      aboutImageRef.current,
-      { x: -50, autoAlpha: 0 },
-      { x: 0, autoAlpha: 1, duration: 0.8, ease: "power3.out" },
-      "-=0.5"
-    ).fromTo(
-      aboutTabsRef.current,
-      { x: 50, autoAlpha: 0 },
-      { x: 0, autoAlpha: 1, duration: 0.8, ease: "power3.out" },
-      "<"
-    )
-
-    return () => {
-      // Kill the timeline and ScrollTriggers on component unmount
-      if (tl) {
-        tl.kill()
-      }
-      ScrollTrigger.getAll().forEach((trigger) => trigger.kill())
-    }
+    return () => ctx.revert() // Cleanup GSAP animations
   }, [])
+
+  // Se ejecuta cada vez que se cambia de pestaña y cambia el contenido
+  useLayoutEffect(() => {
+    gsap.from(tabContentRef.current.children, {
+      duration: 0.5,
+      autoAlpha: 0,
+      y: 20,
+      stagger: 0.1,
+      ease: "power3.out",
+    })
+  }, [activeTab])
 
   return (
     <section 
@@ -149,8 +155,17 @@ const About = () => {
           </div>
 
           {/* Tab Content */}
-          <div className="space-y-4 text-gray-700">
-            {tabContent[activeTab].map((para, idx) => (<p key={idx} className="text-base leading-relaxed">{para}</p>))}
+          <div 
+            ref={tabContentRef} 
+            className="space-y-4 text-gray-700"
+          >
+            {tabContent[activeTab].map((para, idx) => (
+              <p 
+                key={idx} 
+                className="text-base leading-relaxed"
+              >
+                {para}
+              </p>))}
           </div>
         </div>
       </div>
