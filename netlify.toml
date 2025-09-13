@@ -1,7 +1,9 @@
 
+[build]
+  # El comando para construir tu sitio.
+  command = "npm run build"
+  # El directorio que Netlify debe publicar. Para el runtime de Next.js, es `.next`.
+  publish = ".next"
 
-# El plugin de Next.js se encargará de todo automáticamente.
-# Netlify lo detecta gracias a tu `package.json`, pero es buena práctica
-# especificarlo para asegurar que se use la versión correcta.
 [[plugins]]
   package = "@netlify/plugin-nextjs"
