@@ -104,7 +104,36 @@ const Page = () => {
         </section>
 
         {/* Contact Banner */}
+        <section className='bg-black px-[8%] lg:px-[12%] py-12'>
+          <div className='overflow-hidden'>
+            <div className='bg-white rounded flex flex-col md:flex-row gap-6 p-10 items-center shadow-md'>
+              {/* image */}
+              <div className='w-full md:w-2/5 h-[400px]'>
+                <img src="/contact-banner.jpg" alt="contact-banner" className='w-full h-full object-cover rounded-2xl'/>
+              </div>
+              {/* info */}
+              <div className='w-full md:w-3/5'>
+                <h1 className='text-4xl md:text-6xl font-bold'>
+                  Your Dream Start Here
+                </h1>
+                <p className='text-gray-500 mt-4'>
+                  All queries are replied within 24 hours.
+                </p>
+              </div>
+            </div>
 
+            {/* Google Map */}
+            <div className='mt-10'>
+              <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d10499.998333680309!2d2.351183757322502!3d48.85821833418118!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses!2ses!4v1757768514524!5m2!1ses!2ses" 
+                className="w-full h-[450px] rounded-[10px]" 
+                style={{border:0}} 
+                allowFullScreen="" 
+                oading="lazy" 
+                referrerPolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+          </div>
+        </section>
       </div>
     </>
   )
