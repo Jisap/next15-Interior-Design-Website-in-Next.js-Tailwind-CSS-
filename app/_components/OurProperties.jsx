@@ -26,7 +26,7 @@ const OurProperties = () => {
         scrollTrigger: {
           trigger: propertiesEl.current,
           start: "top 70%",
-          toggleActions: "play none none none",
+          toggleActions: "restart none none reset",
         }
       });
 
