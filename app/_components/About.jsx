@@ -142,10 +142,10 @@ const About = () => {
               <button 
                 key={tab.key} 
                 className={`
-                  relative pb-2 text-lg font-medium transition-colors cursor-pointer 
+                  relative pb-2 text-lg font-medium transition-colors cursor-pointer after:content-[''] after:absolute after:bottom-0 after:left-0 after:h-1 after:bg-black after:transition-all after:duration-300
                   ${activeTab === tab.key 
-                    ? "text-black after:absolute after:content-[''] after:bottom-0 after:left-0 after:w-full after:h-1 after:bg-black" 
-                    : "text-gray-400 hover:text-black"}
+                    ? "text-black after:w-full" 
+                    : "text-gray-400 hover:text-black after:w-0"}
                 `} 
                 onClick={() => setActiveTab(tab.key)}
               >
