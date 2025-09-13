@@ -3,11 +3,58 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import PropertyData from '@/app/jsonData/property.json'
+import { useRef } from 'react'
+import { useGSAP } from '@gsap/react'
+import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+
+gsap.registerPlugin(ScrollTrigger);
 
 
 const page = () => {
+  const container = useRef();
+
+  useGSAP(() => {
+    // Animación del título principal
+    gsap.from(".title-animation", {
+        y: 50,
+        opacity: 0,
+        duration: 1,
+        ease: "power3.out",
+        delay: 0.2
+    });
+
+    // Animación del subtítulo "Available Properties"
+    gsap.from(".subtitle-animation", {
+        scrollTrigger: {
+            trigger: ".subtitle-animation",
+            start: "top 85%",
+            toggleActions: "restart none none reset"
+        },
+        y: 50,
+        opacity: 0,
+        duration: 1,
+        ease: "power3.out"
+    });
+
+    // Animación de las tarjetas de propiedades
+    gsap.from(".property-card", {
+        scrollTrigger: {
+            trigger: ".properties-container",
+            start: "top 80%",
+            toggleActions: "restart none none reset"
+        },
+        y: 50,
+        opacity: 0,
+        duration: 0.8,
+        stagger: 0.2,
+        ease: "power2.out"
+    });
+
+  }, { scope: container });
+
   return (
-    <>
+    <div ref={container}>
       <div className="relative h-[75vh] overflow-hidden flex items-center justify-center">
         <video
           autoPlay
@@ -20,7 +67,7 @@ const page = () => {
         </video>
 
         <div className="absolute top-0 left-0 w-full h-full bg-black/70 z-10 flex items-center justify-center" />
-        <h1 className="text-white text-center text-[6rem] md:text-[10rem] font-bricolage z-20">
+        <h1 className="text-white text-center text-[3rem] md:text-[5rem] font-bricolage z-20 title-animation">
           Properties
         </h1>
       </div>
@@ -28,16 +75,16 @@ const page = () => {
       
 
       <main className='px-[8%] lg:px-[12%] py-12'>
-        <h2 className='text-4xl font-bold font-bricolage mb-6'>
+        <h2 className='text-4xl font-bold font-bricolage mb-6 subtitle-animation'>
           Available Properties
         </h2>
 
-        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
+        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 properties-container'>
           {PropertyData.map((property, idx) => (
             <Link
               key={property.id}
               href={`/properties/${property.id}`}
-              className='group relative block h-[400px] rounded overflow-hidden shadow-md'
+              className='group relative block h-[400px] rounded overflow-hidden shadow-md property-card'
             >
               <Image 
                 src={property.image}
@@ -61,7 +108,7 @@ const page = () => {
           ))}
         </div>
       </main>
-    </>
+    </div>
   )
 }
 
