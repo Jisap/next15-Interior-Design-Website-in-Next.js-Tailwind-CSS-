@@ -1,5 +1,5 @@
 import { Swiper, SwiperSlide } from "swiper/react"
-import { Autoplay, EffectCards, EffectFade, Navigation, Pagination } from "swiper/modules"
+import { Autoplay } from "swiper/modules"
 import "swiper/css"
 import "swiper/css/navigation"
 import "swiper/css/effect-cards"
