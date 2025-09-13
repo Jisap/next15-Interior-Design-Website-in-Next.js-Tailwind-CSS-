@@ -43,7 +43,7 @@ const Page = () => {
       <div ref={container}>
         {/* title */}
         <div className='relative flex justify-center items-center h-[75vh] overflow-hidden'>
-          <h1 className='absolute text-white font-bricolage text-6xl lg:text-8xl font-bold z-20 title-animation'>
+          <h1 className='absolute text-white font-bricolage text-6xl lg:text-8xl font-semibold z-20 title-animation'>
             Contact Us
           </h1>
           <video
