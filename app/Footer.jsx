@@ -16,7 +16,7 @@ const Footer = () => {
           <div className="flex flex-col lg:flex-row lg:justify-between gap-12">
             {/* left */}
             <div className="lg:w-1/2 pr-0 lg:pr-0">
-              <h2 className="font-bricolage text-6xl mb-6">
+              <h2 className="font-bricolage text-4xl lg:text-6xl mb-6">
                 We'd love to cooperate to build amazing{" "}
                 <span className="word-animate"></span>
               </h2>
@@ -43,7 +43,7 @@ const Footer = () => {
             <div className="lg:w-1/2 flex flex-col lg:flex-row gap-8 lg:gap-12">
               <div>
                 <div className="flex flex-col space-y-3">
-                  <h3 className="uppercase text-3xl font-bricolage mb-3">Company</h3>
+                  <h3 className="uppercase text-2xl lg:text-3xl font-bricolage mb-3">Company</h3>
                   <Link href="/about" className="text-xl font-medium text-gray-700 hover:text-black">
                     About Us
                   </Link>
@@ -56,7 +56,7 @@ const Footer = () => {
                 </div>
 
                 <div className="lg:flex-1 mt-5">
-                  <h5 className="font-bricolage text-3xl mb-3">
+                  <h5 className="font-bricolage text-2xl lg:text-3xl mb-3">
                     Address
                   </h5>
 
@@ -67,7 +67,7 @@ const Footer = () => {
               </div>
 
               <div className="flex flex-col space-y-3">
-                <h3 className="uppercase text-3xl font-bricolage mb-3">
+                <h3 className="uppercase text-2xl lg:text-3xl font-bricolage mb-3">
                   Follow Us
                 </h3>
                 <a href="#" className="text-xl font-medium text-gray-700 hover:text-black">
