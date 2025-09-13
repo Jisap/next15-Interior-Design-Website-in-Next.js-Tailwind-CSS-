@@ -9,10 +9,10 @@ import gsap from "gsap";
 
 const navLinks = [
   { name: "Home", href: "/" },
-  { name: "About Us", href: "/About" },
+  { name: "About Us", href: "/about" },
   { name: "Services", href: "/services" },
   { name: "Properties", href: "/properties" },
-  { name: "Contact", href: "/Contact" },
+  { name: "Contact", href: "/contact" },
 ]
 
 const Nav = () => {
