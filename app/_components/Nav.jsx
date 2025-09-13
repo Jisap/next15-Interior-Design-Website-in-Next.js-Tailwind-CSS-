@@ -3,7 +3,9 @@
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
 
 const navLinks = [
   { name: "Home", href: "/" },
@@ -15,10 +17,35 @@ const navLinks = [
 
 const Nav = () => {
 
-
+  const navRef = useRef(null);
+  const tl = useRef(null);
   const [isSticky, setIsSticky] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const pathname = usePathname();
+
+  // GSAP animation for the side menu
+  useGSAP(() => {
+    const sideMenu = navRef.current.querySelector('.side-menu');
+    const menuItems = navRef.current.querySelectorAll('.menu li');
+
+    // Set initial state to hidden
+    gsap.set(sideMenu, { autoAlpha: 0, height: 0 });
+
+    tl.current = gsap.timeline({ paused: true })
+      .to(sideMenu, { 
+        autoAlpha: 1,
+        height: 'auto', 
+        duration: 0.4, 
+        ease: 'power2.inOut' 
+      })
+      .from(menuItems, {
+        y: 20,
+        opacity: 0,
+        stagger: 0.05,
+        duration: 0.3,
+        ease: 'power1.out'
+      }, "-=0.2");
+  }, { scope: navRef });
 
   useEffect(() => {
     const handleScroll = () => {
@@ -36,8 +63,19 @@ const Nav = () => {
     };
   }, []);
 
+  // Control the animation with state
+  useEffect(() => {
+    if (tl.current) {
+      if (isMenuOpen) {
+        tl.current.play();
+      } else {
+        tl.current.reverse();
+      }
+    }
+  }, [isMenuOpen]);
+
   return (
-    <nav className={`
+    <nav ref={navRef} className={`
       fixed top-0 left-0 w-full z-50 transition-all duration-300 
       ${isSticky || pathname !== "/" ? "bg-white shadow-md" : "bg-transparent border-b border-gray-400"}
     `}>
@@ -89,23 +127,21 @@ const Nav = () => {
       </div>
 
       {/* SideMenu */}
-      {isMenuOpen && (
-        <div className="lg:hidden bg-white text-black p-6 side-menu">
-          <ul className="space-y-4 menu">
-            {navLinks.map((link) => (
-              <li key={link.name}>
-                <Link 
-                  href={link.href} 
-                  className="block text-lg" 
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  {link.name}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
-      )}
+      <div className="lg:hidden bg-white text-black p-6 side-menu overflow-hidden">
+        <ul className="space-y-4 menu">
+          {navLinks.map((link) => (
+            <li key={link.name}>
+              <Link 
+                href={link.href} 
+                className="block text-lg" 
+                onClick={() => setIsMenuOpen(false)}
+              >
+                {link.name}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </div>
     </nav>
   )
 }
