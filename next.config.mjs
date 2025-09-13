@@ -1,10 +1,11 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  //output: 'export',
-  //trailingSlash: true,
-  //images: {
-  //  unoptimized: true
-  //}
+  output: 'export',
+  trailingSlash: true,
+  distDir: 'dist',
+  images: {
+    unoptimized: true
+  }
   // images: {
   //   remotePatterns: [
   //     {
@@ -13,9 +14,7 @@ const nextConfig = {
   //     },
   //   ],
   // },
-  experimental: {
-    appDir: true
-  }
+  
 };
 
 export default nextConfig;
