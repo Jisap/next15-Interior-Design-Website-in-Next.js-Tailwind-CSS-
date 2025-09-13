@@ -1,5 +1,6 @@
 "use client"
 
+
 import { use, useRef } from "react"
 import { Autoplay, Navigation } from "swiper/modules"
 import PropertyData from "@/app/jsonData/property.json"
@@ -11,6 +12,9 @@ import 'swiper/css'
 import { useGSAP } from "@gsap/react"
 import gsap from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
+
+export const dynamic = "force-dynamic";
+
 
 gsap.registerPlugin(ScrollTrigger);
 
