@@ -1,21 +1,44 @@
 "use client"
 
 import Link from "next/link"
+import { useRef, useLayoutEffect } from "react"
+import { gsap } from "gsap"
+import { ScrollTrigger } from "gsap/ScrollTrigger"
 
-
-
+gsap.registerPlugin(ScrollTrigger)
 
 const Footer = () => {
+  const footerRef = useRef(null)
+
+  useLayoutEffect(() => {
+    const ctx = gsap.context(() => {
+      gsap.from(".footer-anim", {
+        scrollTrigger: {
+          trigger: footerRef.current,
+          start: "top 95%", // Start animation when the top of the footer is 95% from the top of the viewport
+          toggleActions: "play none none none",
+        },
+        opacity: 0,
+        y: 50,
+        duration: 1,
+        stagger: 0.2,
+        ease: "power3.out",
+      })
+    }, footerRef)
+
+    return () => ctx.revert() // Cleanup
+  }, [])
+
   return (
     <>
-      <footer className="relative z-10">
+      <footer ref={footerRef} className="relative z-10 overflow-hidden">
         <div className="absolute inset-0 bg-[url('/footer-bg.png')] invert z-[-1]" />
         <div className="absolute bottom-0 right-0 w-full h-full bg-[url('/footer-shape.svg')] bg-no-repeat bg-right-bottom invert z-[-1]" />
 
         <div className="container mx-auto px-6 py-20">
           <div className="flex flex-col lg:flex-row lg:justify-between gap-12">
             {/* left */}
-            <div className="lg:w-1/2 pr-0 lg:pr-0">
+            <div className="lg:w-1/2 pr-0 lg:pr-0 footer-anim">
               <h2 className="font-bricolage text-4xl lg:text-6xl mb-6">
                 We'd love to cooperate to build amazing{" "}
                 <span className="word-animate"></span>
@@ -40,7 +63,7 @@ const Footer = () => {
               </div>
             </div>
 
-            <div className="lg:w-1/2 flex flex-col lg:flex-row gap-8 lg:gap-12">
+            <div className="lg:w-1/2 flex flex-col lg:flex-row gap-8 lg:gap-12 footer-anim">
               <div>
                 <div className="flex flex-col space-y-3">
                   <h3 className="uppercase text-2xl lg:text-3xl font-bricolage mb-3">Company</h3>
@@ -87,7 +110,7 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="border-b border-gray-300 py-6 bg-white">
+        <div className="border-b border-gray-300 py-6 bg-white footer-anim">
           <p className="text-center text-lg">
             Copyright © 2025 LivingLines. All rights reserved By
             <a href="#" className="font-semibold hover:underline"> k2infocom</a>
