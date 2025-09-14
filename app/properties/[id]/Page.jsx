@@ -13,8 +13,6 @@ import { useGSAP } from "@gsap/react"
 import gsap from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 
-export const dynamic = "force-dynamic";
-
 
 gsap.registerPlugin(ScrollTrigger);
 
