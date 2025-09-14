@@ -1,7 +1,7 @@
 import PropertyData from "@/app/jsonData/property.json";
 import { notFound } from "next/navigation";
 import PropertyDetailsClient from "./PropertyDetailsClient";
- // Importamos el nuevo componente
+// Importamos el nuevo componente
 
 // 1. generateStaticParams se queda aquí, en el componente de servidor.
 export function generateStaticParams() {
@@ -11,9 +11,9 @@ export function generateStaticParams() {
 }
 
 // 2. Este es ahora un Componente de Servidor. No usa "use client".
-const PropertyDetailsPage = ({ params }) => {
+const PropertyDetailsPage = async ({ params }) => {
   // En los componentes de servidor, `params` es un objeto simple, no se necesita `use()`.
-  const { id } = params;
+  const { id } = await params;
   const property = PropertyData.find(p => p.id === parseInt(id));
 
   // Si la propiedad no se encuentra, muestra la página 404.
